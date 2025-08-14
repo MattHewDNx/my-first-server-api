@@ -5,8 +5,7 @@ const userController = require('../controllers/userController');
 const { protect } = require('../middleware/authMiddleware')
 
 // This route is now protected by the 'protect' middleware.
-// router.get('/', protect, userController.getAllUsers);
-router.get('/', userController.getAllUsers);
+router.get('/', protect, userController.getAllUsers);
 
 // This route is also protected.
 router.get('/:id', protect, userController.getUserById);
